@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>app</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
+    <!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <!--iphone的私有标签，它指定的iphone中safari顶端的状态条(时间，信号等)的样式:黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <!--告诉设备忽略将页面中的数字识别为电话号码-->
+    <meta content="telephone=no" name="format-detection"/>
+    <!--iphone的私有标签，它指定你保存某个页面到桌面的时候使用这张图作为桌面图标,尺寸和iphone上的一致，是57*57px-->
+    <link rel="apple-touch-icon" href="custom_icon.png">
+    <meta name="description" content="">
+    <meta name="keywords" content="mobile">
+    <!--<link rel="stylesheet" href="client/public/css/mobile_base.css">-->
+    <link rel="stylesheet" href="./assets/css/pc_base.css">
+</head>
+
+<body ontouchmove="event.preventDefault()">
+<script type="text/javascript" src="./assets/dist/vendor.bundle.js"></script>
+<script type="text/javascript" src="./assets/dist/app.min.js"></script>
+</body>
+
+</html>
