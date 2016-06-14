@@ -57,7 +57,7 @@ var plugins = [
     //new webpack.ProvidePlugin({
     //    $: 'jquery'
     //}),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     /*
     开启[HMR] Hot Module Replacement,如果不加就是禁用了HMR,就不会热替换了
     */

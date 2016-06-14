@@ -10,7 +10,7 @@ export default class extends Component{
     render() {
         const { getFieldProps } = this.props.form;
         return (
-            <Form inline onSubmit={this.handleSubmit}>
+            <Form inline onSubmit={::this.handleSubmit}>
                 <FormItem
                     label="账户"
                 >

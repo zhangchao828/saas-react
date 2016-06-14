@@ -59,7 +59,10 @@ body {
     -moz-box-sizing: inherit;
     box-sizing: inherit;
 }
-
+.react-root{
+    height:100%;
+    position: relative;
+}
 @media screen and (min-width: 480px) and (max-width: 639px) {
     html {
         font-size: 15px
