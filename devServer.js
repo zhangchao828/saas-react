@@ -25,7 +25,7 @@ app.use(webpackHotMiddleware(compiler));
 //app.set('views', __dirname + '/');
 //app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/')));
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
