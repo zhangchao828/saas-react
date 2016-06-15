@@ -14,6 +14,7 @@ app.use(webpackDevMiddleware(compiler , {
     // contentBase: `http://localhost:${port}`,
     // quiet: true,
     noInfo: true,
+    // historyApiFallback:true,
     hot: true,
     // inline: true,
     // lazy: false,
@@ -24,6 +25,8 @@ app.use(webpackDevMiddleware(compiler , {
 app.use(webpackHotMiddleware(compiler));
 //app.set('views', __dirname + '/');
 //app.set('view engine', 'ejs');
+// 处理HTML5 history API
+app.use(require('connect-history-api-fallback')())
 app.use(express.static(path.join(__dirname, '/')));
 app.get("*", function(req, res) {
     res.sendFile(__dirname + '/index.html')

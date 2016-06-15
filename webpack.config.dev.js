@@ -79,7 +79,7 @@ var config = {
         app: [
             'webpack-hot-middleware/client?reload=true',
             'babel-polyfill',
-            './app/'
+            './app/app'
         ],
         //第三方库
         vendor: [
@@ -88,7 +88,7 @@ var config = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'assets/dist'),
+        path: path.join(__dirname, '/assets/dist'),
         publicPath: 'http://localhost:3000/assets/dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
@@ -101,7 +101,7 @@ var config = {
             path.resolve(nodeModulesPath, 'redux/dist/redux.js')
         ],
         loaders: [{
-            test: /\.js?$/,
+            test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: 'babel'
         }, {
