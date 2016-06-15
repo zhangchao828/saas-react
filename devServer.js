@@ -14,7 +14,6 @@ app.use(webpackDevMiddleware(compiler , {
     // contentBase: `http://localhost:${port}`,
     // quiet: true,
     noInfo: true,
-    // historyApiFallback:true,
     hot: true,
     // inline: true,
     // lazy: false,
