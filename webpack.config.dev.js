@@ -79,7 +79,7 @@ var config = {
         app: [
             'webpack-hot-middleware/client?reload=true',
             'babel-polyfill',
-            './app/app'
+            './app/'
         ],
         //第三方库
         vendor: [

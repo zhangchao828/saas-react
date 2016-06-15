@@ -1,4 +1,4 @@
-export default{
+module.exports={
     path: 'course',
     getComponent(nextState, cb) {
         require.ensure([], (require) => {
