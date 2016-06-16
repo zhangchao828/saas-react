@@ -1,8 +1,8 @@
 import Login from '../components/Login'
 import App from '../components/Header'
-import Home from '../components/Home'
+import Work from '../components/Work'
 export default{
-    component:'div',
+    // component:'div',
     childRoutes:[{
         path:'/',
         component:Login,
@@ -12,13 +12,14 @@ export default{
             // }
         }
     },{
-        path:'/home',
+        path:'/app',
         component:App,
         indexRoute:{
-          component:Home
+          component:  Work
         },
         childRoutes:[
-            require('./course')
+            require('./work'),
+            // require('./manage')
         ]
     }]
 }
