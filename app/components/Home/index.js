@@ -1,7 +1,10 @@
-import React from 'react'
-const Home=()=>(
-    <div>
-        Home
-    </div>
-)
-export default Home
+import React,{Component} from 'react'
+export default class extends Component{
+    render(){
+        return(
+            <div>
+                Home
+            </div>
+        )
+    }
+}

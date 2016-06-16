@@ -1,15 +1,23 @@
 import Login from '../components/Login'
-import App from '../components/App/index'
+import App from '../components/Header'
+import Home from '../components/Home'
 export default{
     component:'div',
     childRoutes:[{
         path:'/',
-        component:Login
+        component:Login,
+        onEnter: function (nextState, replace) {
+            // if(localStorage.isLogin==='true'){
+            //     replace('/home')
+            // }
+        }
     },{
-        path:'/hunliji',
+        path:'/home',
         component:App,
+        indexRoute:{
+          component:Home
+        },
         childRoutes:[
-            require('./home'),
             require('./course')
         ]
     }]

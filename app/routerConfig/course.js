@@ -1,8 +1,16 @@
 module.exports={
     path: 'course',
-    getComponent(nextState, cb) {
+    getComponents(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('../components/Course'))
+            cb(null, require('../components/Course')['default'])
         })
-    }
+    },
+    childRoutes:[{
+        path:'test',
+        getComponents(nextState,cb){
+            require.ensure([], (require) => {
+                cb(null, require('../components/Test')['default'])
+            })
+        }
+    }]
 }

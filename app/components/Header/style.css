@@ -1,0 +1,21 @@
+.container{
+  height: 80px;
+  background: #2e2e2e;
+  ul{
+    height:100%;
+    margin: 0 auto;
+    li{
+      height:100%;
+      margin-right: 20px;
+      float: left;
+      a{
+        display: block;
+        height: 100%;
+        color: #fff;
+        line-height: 80px;
+        text-align: center;
+        width: 60px;
+      }
+    }
+  }
+}
