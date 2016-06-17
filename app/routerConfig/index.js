@@ -1,6 +1,5 @@
 import Login from '../components/Login'
 import App from '../components/Header'
-import Work from '../components/Work'
 export default{
     // component:'div',
     childRoutes:[{
@@ -15,11 +14,12 @@ export default{
         path:'/app',
         component:App,
         indexRoute:{
-          component:  Work
+            //进入/app的时候定向到/app/work/crm
+            onEnter: (nextState, replace) => replace('/app/work/crm')
         },
         childRoutes:[
             require('./work'),
-            // require('./manage')
+            require('./manage')
         ]
     }]
 }

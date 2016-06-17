@@ -1,0 +1,33 @@
+.container{
+  height: 100%;
+  position: relative;
+  .nav{
+    height: 100%;
+    width:80px;
+    float: left;
+    background: #2b3245;
+    ul{
+      li{
+        height: 80px;
+        a{
+          display: block;
+          height: 100%;
+          line-height: 80px;
+          text-align: center;
+          color: #fff;
+          font-size: 16px;
+        }
+        .active{
+          background: #0b97c4;
+        }
+      }
+    }
+  }
+  .body{
+    float: left;
+    height: 100%;
+    width: calc(100% - 80px);
+    background: #f5f5f5;
+    position: relative;
+  }
+}
