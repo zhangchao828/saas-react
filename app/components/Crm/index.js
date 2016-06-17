@@ -1,16 +1,21 @@
 import React,{PropTypes,Component} from 'react'
 import { Menu, Icon, Switch } from 'antd'
+import {withRouter} from 'react-router'
 import styles from './styles.css'
 const SubMenu = Menu.SubMenu
+@withRouter
 export default class extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        const pathname=window.location.pathname
         this.state={
-            current:'1'
+            current:pathname.substring(pathname.lastIndexOf('/')+1)
         }
     }
     handleClick(e) {
-        console.log(e.key)
+        this.props.router.push({
+            pathname:`/app/work/crm/${e.key}`
+        })
         this.setState({
             current: e.key
         });
@@ -26,11 +31,11 @@ export default class extends Component{
                           selectedKeys={[this.state.current]}
                           mode="inline"
                     >
-                        <Menu.Item key="1">
-                            <Icon type="android" />选项1
+                        <Menu.Item key="android">
+                            <Icon type="android" />安卓
                         </Menu.Item>
-                        <Menu.Item key="2">
-                            <Icon type="apple" />选项2
+                        <Menu.Item key="apple">
+                            <Icon type="apple" />苹果
                         </Menu.Item>
                         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
                             <Menu.Item key="3">子选项1</Menu.Item>
@@ -38,16 +43,16 @@ export default class extends Component{
                             <Menu.Item key="5">子选项3</Menu.Item>
                             <Menu.Item key="6">子选项4</Menu.Item>
                         </SubMenu>
-                        <Menu.Item key="7">
-                            <Icon type="windows" />选项3
+                        <Menu.Item key="windows">
+                            <Icon type="windows" />windows
                         </Menu.Item>
-                        <Menu.Item key="8">
-                            <Icon type="github" />选项4
+                        <Menu.Item key="github">
+                            <Icon type="github" />github
                         </Menu.Item>
                     </Menu>
                 </div>
                 <div className={styles.body}>
-                    {this.props.children||'aaa'}
+                    {this.props.children}
                 </div>
             </div>
         )
