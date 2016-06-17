@@ -7,15 +7,15 @@ export default class extends Component{
         const router=this.props.router
         router.push({pathname:'/'})
     }
-    componentWillMount(){
-        this.props.router.setRouteLeaveHook(
-            this.props.route,
-            nextLocation=>this.routerWillLeave(nextLocation)
-        )
-    }
-    routerWillLeave(nextLocation) {
-        return '确定要退出吗?';
-    }
+    // componentWillMount(){
+    //     this.props.router.setRouteLeaveHook(
+    //         this.props.route,
+    //         nextLocation=>this.routerWillLeave(nextLocation)
+    //     )
+    // }
+    // routerWillLeave(nextLocation) {
+    //     return '确定要退出吗?';
+    // }
     render(){
         return(
             <div className={styles.container}>
