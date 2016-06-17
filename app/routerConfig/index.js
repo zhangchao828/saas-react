@@ -1,5 +1,6 @@
 import Login from '../components/Login'
 import App from '../components/Header'
+import Error from '../components/Error'
 export default{
     // component:'div',
     childRoutes:[{
@@ -21,5 +22,8 @@ export default{
             require('./work'),
             require('./manage')
         ]
+    },{
+        path:'*',
+        component:Error
     }]
 }
