@@ -1,0 +1,16 @@
+import * as type from './types/androidType'
+import API from '../api/android'
+export const search=params=>async (dispatch,getState)=>{
+    let result=await API.search_api(params)
+    dispatch({
+        type:type.SEARCH,
+        data:result.data
+    })
+    setTimeout(()=>{
+        dispatch(loading(false))
+    },2000)
+}
+export const loading=loading=>({
+    type:'LOADING',
+    loading
+})

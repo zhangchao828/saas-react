@@ -2,14 +2,14 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Router,browserHistory,hashHistory} from 'react-router'
 import routerConfig from './routerConfig'
-// setInterval(()=>{
-// 	if(localStorage.isLogin==='true'){
-// 		localStorage.isLogin='false'
-// 	}
-// },5000)
+import store from './store'
+import {Provider} from 'react-redux'
 render(
-	<Router history={browserHistory} routes={routerConfig}>
+	//向整个应用提供store
+	<Provider store={store}>
+		<Router history={browserHistory} routes={routerConfig}>
 
-	</Router>,
+		</Router>
+	</Provider>,
 	document.getElementById('react-root')
 )

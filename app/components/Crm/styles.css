@@ -1,14 +1,16 @@
 $menuW:160px;
 .container{
+  position: relative;
   height:100%;
   .menu{
     height:100%;
     width:$menuW;
-    float: left;
   }
   .body{
-    height:100%;
-    width:calc(100% - 160px);
-    float: left;
+    position: absolute;
+    left:$menuW;
+    top:0;
+    right:0;
+    bottom:0;
   }
 }
