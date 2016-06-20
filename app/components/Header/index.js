@@ -5,7 +5,9 @@ import styles from './style.css'
 export default class extends Component{
     logout(){
         const router=this.props.router
-        router.push({pathname:'/'})
+        if(confirm('确定要注销吗?')){
+            router.push({pathname:'/'})
+        }
     }
     // componentWillMount(){
     //     this.props.router.setRouteLeaveHook(

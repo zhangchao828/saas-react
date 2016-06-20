@@ -8,7 +8,7 @@ export const search=params=>async (dispatch,getState)=>{
     })
     setTimeout(()=>{
         dispatch(loading(false))
-    },2000)
+    },1500)
 }
 export const loading=loading=>({
     type:'LOADING',
