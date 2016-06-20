@@ -14,7 +14,6 @@ a {
 li {
     list-style: none;
 }
-
 html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -31,7 +30,6 @@ body {
     -ms-user-select: none;
     user-select: none;
     -webkit-font-smoothing: antialiased;
-    //background: url("../img/sws/theme_neptune.png") no-repeat fixed 0 0/100% 100%;
 }
 
 *, *:after, *:before {

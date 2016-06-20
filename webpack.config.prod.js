@@ -60,12 +60,13 @@ var config = {
             test: /\.css$/,
             include:/node_modules/,
             loader:'style!css'
-        }, {
-            test: /\.(png|jpg|svg|gif|jpeg)$/,
-            loader: 'url?limit=10000'
-        }, {
-            test: /\.(woff|woff2)$/,
-            loader: 'url?limit=100000'
+        },{
+            test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+            loader: 'url',
+            query: {
+                limit: 10000,
+                name: '[path][name].[ext]'
+            }
         }]
     },
     postcss: [
