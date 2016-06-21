@@ -9,6 +9,7 @@
     "transform-class-properties",
     ["antd",{"style":"css"}]
   ],
+  "_comment":"transform-class-properties:support static attribute",
   "env": {
     "development": {
       "presets": ["react-hmre"]
