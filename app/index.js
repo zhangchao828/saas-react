@@ -5,8 +5,8 @@ import routerConfig from './routerConfig'
 import configureStore from './store'
 import {Provider} from 'react-redux'
 import { syncHistoryWithStore} from 'react-router-redux'
-const history = syncHistoryWithStore(browserHistory, store)
 const store = configureStore({})
+const history = syncHistoryWithStore(browserHistory, store)
 render(
 	//向整个应用提供store
 	<Provider store={store}>
