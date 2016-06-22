@@ -7,18 +7,18 @@ const SubMenu = Menu.SubMenu
 export default class extends Component{
     constructor(props){
         super(props)
-        const pathname=window.location.pathname
+        const {pathname}=location
         this.state={
             current:pathname.substring(pathname.lastIndexOf('/')+1)
         }
     }
     handleClick(e) {
+        this.setState({
+            current: e.key
+        })
         this.props.router.push({
             pathname:`/app/work/crm/${e.key}`
         })
-        this.setState({
-            current: e.key
-        });
     }
     render(){
         return(

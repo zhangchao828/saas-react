@@ -9,7 +9,7 @@ var express = require('express'),
     app = express(),
     compiler = webpack(webpackDevConfig);
 //http代理比如http://localhost:3000/jquery/foo/bar -> http://cdn.bootcss.com/jquery/foo/bar 
-app.use('/jquery', proxy({target: 'http://cdn.bootcss.com', changeOrigin: true}));
+// app.use('/jquery', proxy({target: 'http://cdn.bootcss.com', changeOrigin: true}));
 app.use(webpackDevMiddleware(compiler , {
     // contentBase: `http://localhost:${port}`,
     // quiet: true,
