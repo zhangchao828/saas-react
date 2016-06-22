@@ -1,9 +1,8 @@
 import React,{PropTypes,Component} from 'react'
 import { Menu, Icon, Switch } from 'antd'
-import {withRouter} from 'react-router'
+import {browserHistory} from 'react-router'
 import styles from './styles.css'
 const SubMenu = Menu.SubMenu
-@withRouter
 export default class extends Component{
     constructor(props){
         super(props)
@@ -16,7 +15,7 @@ export default class extends Component{
         this.setState({
             current: e.key
         })
-        this.props.router.push({
+        browserHistory.push({
             pathname:`/app/work/crm/${e.key}`
         })
     }

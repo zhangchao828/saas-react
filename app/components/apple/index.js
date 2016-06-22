@@ -1,5 +1,10 @@
 import React,{Component,PropTypes} from 'react'
 import styles from './style.css'
+// import { reduxForm } from 'redux-form'
+// @reduxForm({ 
+//   form: 'contact', // a unique name for this form
+//   fields: ['firstName', 'lastName', 'email'] // all the fields in your form
+// })
 export default class extends Component{
     // static propTypes={
     //     handler:PropTypes.func

@@ -1,12 +1,10 @@
 import React,{Component} from 'react'
 import styles from './style.css'
-import {withRouter} from 'react-router'
-@withRouter
+import {browserHistory} from 'react-router'
 export default class extends Component{
     login(){
-        const router=this.props.router
         // localStorage.isLogin='true';
-        router.push({pathname:'/app'})
+        browserHistory.push({pathname:'/app'})
     }
     render(){
         return(
