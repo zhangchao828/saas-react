@@ -11,9 +11,8 @@ export default class extends Component{
         }
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps)
         this.setState({
-            selected: location.pathname
+            selected: nextProps.location.pathname
         })
     }
     render(){

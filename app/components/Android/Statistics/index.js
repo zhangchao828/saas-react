@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Table, Button } from 'antd';
+import { Table, Button ,Pagination } from 'antd';
 import columns from './columns'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -17,14 +17,25 @@ export default class extends Component{
         actions.loading(true)
         actions.search()
     }
+    pagination={
+        showQuickJumper:true,
+        showTotal:total => `共 ${total} 条`,
+        showSizeChanger:true
+    }
     render(){
         const {data,loading}=this.props.android
+        this.pagination.total=data.length
         return(
             <div>
                 <div style={{ margin: 10 }}>
                     <Button type="primary" onClick={::this.search}>搜索</Button>
                 </div>
-                <Table columns={columns} dataSource={data} loading={loading} />
+                <Table
+                    columns={columns}
+                    dataSource={data}
+                    loading={loading}
+                    pagination={this.pagination}
+                    />
             </div>
         )
     }
