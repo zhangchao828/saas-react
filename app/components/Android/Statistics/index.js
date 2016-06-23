@@ -17,14 +17,12 @@ export default class extends Component{
         actions.loading(true)
         actions.search()
     }
-    pagination={
-        showQuickJumper:true,
-        showTotal:total => `共 ${total} 条`,
-        showSizeChanger:true
+    handleTableChange(pagination, filters, sorter){
+        const actions=this.props.actions
+        actions.paging(pagination)
     }
     render(){
-        const {data,loading}=this.props.android
-        this.pagination.total=data.length
+        const {data,loading,pagination}=this.props.android
         return(
             <div>
                 <div style={{ margin: 10 }}>
@@ -34,7 +32,8 @@ export default class extends Component{
                     columns={columns}
                     dataSource={data}
                     loading={loading}
-                    pagination={this.pagination}
+                    pagination={pagination}
+                    onChange={::this.handleTableChange}
                     />
             </div>
         )

@@ -1,14 +1,22 @@
 import {SEARCH} from '../actions/types/androidType'
+import update from 'react-addons-update'
 const initialState={
     data:[],
-    loading:false
+    loading:false,
+    pagination:{
+        showQuickJumper:true,
+        showTotal:total => `共 ${total} 条`,
+        showSizeChanger:true
+    }
 }
 export default (state=initialState,action)=>{
     switch (action.type){
         case SEARCH:
-            return Object.assign({},state,{data:action.data})
+            return update(state,{data:{$set:action.data}})
         case 'LOADING':
-            return Object.assign({},state,{loading:action.loading})
+            return update(state,{loading:{$set:action.loading}})
+        case 'PADING':
+            return update(state,{pagination:{$set:action.pager}})
         default:
             return state
     }

@@ -14,3 +14,7 @@ export const loading=loading=>({
     type:'LOADING',
     loading
 })
+export const paging=pager=>({
+    type:'PADING',
+    pager
+})
