@@ -1,40 +1,42 @@
 import React,{PropTypes,Component} from 'react'
 import { Menu, Icon, Switch } from 'antd'
-import {browserHistory} from 'react-router'
+import {Link,browserHistory} from 'react-router'
 import styles from './styles.css'
 const SubMenu = Menu.SubMenu
 export default class extends Component{
     constructor(props){
         super(props)
-        const {pathname}=location
         this.state={
-            current:pathname.substring(pathname.lastIndexOf('/')+1)
+            selected:location.pathname
         }
     }
-    handleClick(e) {
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps)
         this.setState({
-            current: e.key
-        })
-        browserHistory.push({
-            pathname:`/app/work/crm/${e.key}`
+            selected: location.pathname
         })
     }
     render(){
+        let selected=this.state.selected
+        let current=selected.substring(selected.lastIndexOf('/'))
         return(
             <div className={styles.container}>
                 <div className={styles.menu}>
                     <Menu theme='light'
-                          onClick={::this.handleClick}
                           style={{ width: '100%',height:'100%' }}
                           defaultOpenKeys={['sub1']}
-                          selectedKeys={[this.state.current]}
+                          selectedKeys={[current]}
                           mode="inline"
                     >
-                        <Menu.Item key="android">
-                            <Icon type="android" />安卓
+                        <Menu.Item key="/android">
+                            <Link to="/app/work/crm/android">
+                                <Icon type="android" />安卓
+                            </Link>
                         </Menu.Item>
-                        <Menu.Item key="apple">
-                            <Icon type="apple" />苹果
+                        <Menu.Item key="/apple">
+                            <Link to="/app/work/crm/apple">
+                                <Icon type="apple" />苹果
+                            </Link>
                         </Menu.Item>
                         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
                             <Menu.Item key="3">子选项1</Menu.Item>
