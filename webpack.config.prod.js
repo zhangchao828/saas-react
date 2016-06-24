@@ -12,10 +12,12 @@ var plugins = [
             warnings: false
         }
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin("[name].css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
+        'process.env.NODE_ENV': '"production"',
+        __DEV__:false
     })
 ];
 var config = {
@@ -61,8 +63,11 @@ var config = {
             include:/node_modules/,
             loader:'style!css'
         },{
-            test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url',
+            test: /\.(png|jpe?g|gif)$/,
+            loader: 'url?limit=1024'
+        },{
+            test: /\.(svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+            loader: 'url?limit=10000',
             query: {
                 limit: 10000,
                 name: '[path][name].[ext]'

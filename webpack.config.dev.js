@@ -71,14 +71,14 @@ var plugins = [
     new ExtractTextPlugin("[name].css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"development"'
+        'process.env.NODE_ENV': '"development"',
+        __DEV__:true
     })
 ];
 var config = {
     entry: {
         app: [
             'webpack-hot-middleware/client?reload=true',
-            'babel-polyfill',
             './app/'
         ],
         //第三方库
@@ -126,8 +126,11 @@ var config = {
             include: /node_modules/,//include和exclude都可以是一个数组
             loader: 'style!css'
         },{
-            test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url',
+            test: /\.(png|jpe?g|gif)$/,
+            loader: 'url?limit=1024'
+        },{
+            test: /\.(svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+            loader: 'url?limit=10000',
             query: {
                 limit: 10000,
                 name: '[path][name].[ext]'

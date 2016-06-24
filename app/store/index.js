@@ -1,7 +1,7 @@
 import {createStore,applyMiddleware,compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from '../reducers'
-const distinguish=function (isDev=true) {
+const distinguish=(isDev=true)=>{
     if (isDev){
         return compose(
             applyMiddleware(thunkMiddleware),
@@ -12,13 +12,13 @@ const distinguish=function (isDev=true) {
         return applyMiddleware(thunkMiddleware)
     }
 }
-export default function configureStore(initalState) {
+export default initalState=>{
   const store = createStore(
   	rootReducer, 
   	initalState,
-  	distinguish(process.env.NODE_ENV!=='production')
+  	distinguish(__DEV__)
   )
-  if (module.hot) {
+  if(module.hot) {
     module.hot.accept('../reducers', () => {
       const nextReducer = require('../reducers').default
       store.replaceReducer(nextReducer)
