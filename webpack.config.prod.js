@@ -23,12 +23,12 @@ var plugins = [
 var config = {
     entry: {
         app: [
-            'babel-polyfill',
             './app/'
         ],
         vendor: [
             'react',
-            'react-dom'
+            'react-dom',
+            'redux'
         ]
     },
     output: {
@@ -53,7 +53,7 @@ var config = {
         },{
             test: /\.css$/,
             include:[path.join(__dirname,'assets/css/')],
-            loader:  ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
+            loader:  ExtractTextPlugin.extract("style", "css!postcss")
         },{
             test: /\.css$/,
             include:[path.join(__dirname,'app')],
@@ -67,11 +67,7 @@ var config = {
             loader: 'url?limit=1024'
         },{
             test: /\.(svg|woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url?limit=10000',
-            query: {
-                limit: 10000,
-                name: '[path][name].[ext]'
-            }
+            loader: 'url?limit=10240'
         }]
     },
     postcss: [

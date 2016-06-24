@@ -68,7 +68,7 @@ var plugins = [
     //     }
     // }),
     //单独打包css文件，然后以link形式引入,可以加第二个参数{allChunks: true}表示合并多个css文件
-    new ExtractTextPlugin("[name].css",{allChunks: true}),
+    new ExtractTextPlugin("[name][hash:5].min.css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"development"',
@@ -123,18 +123,19 @@ var config = {
             loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         },{
             test: /\.css$/,
-            include: /node_modules/,//include和exclude都可以是一个数组
+            //include和exclude都可以是一个数组
+            include: /node_modules/,
             loader: 'style!css'
         },{
             test: /\.(png|jpe?g|gif)$/,
             loader: 'url?limit=1024'
         },{
             test: /\.(svg|woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url?limit=10000',
-            query: {
-                limit: 10000,
-                name: '[path][name].[ext]'
-            }
+            loader: 'url?limit=10240'
+            // query: {
+            //     limit: 10000,
+            //     name: '[path][name].[ext]'
+            // }
         }]
     },
     //postCss插件
