@@ -12,6 +12,9 @@ export default class extends Component{
     state={
         value:'双向绑定'
     }
+    getValue=(value)=>{
+        alert(value)
+    }
     changeHandler(e){
         this.setState({
             value:e.target.value
@@ -23,6 +26,7 @@ export default class extends Component{
             <div>
                 <h1>{value||'双向绑定'}</h1>
                 <input type="text" onChange={::this.changeHandler} defaultValue={value}/>
+                <button onClick={()=>this.getValue(value)}>获取</button>
             </div>
         )
     }
