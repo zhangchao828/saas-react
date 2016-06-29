@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/zhangchao828/saas-react#readme",
   "dependencies": {
-    "antd": "^1.6.2npm",
+    "antd": "^1.6.2",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
