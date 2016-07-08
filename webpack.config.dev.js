@@ -79,7 +79,7 @@ var config = {
     entry: {
         app: [
             'webpack-hot-middleware/client?reload=true',
-            './app/'
+            './app/'//入口文件，你想打包处理的文件
         ],
         //第三方库
         vendor: [
@@ -87,6 +87,7 @@ var config = {
             'react-dom'
         ]
     },
+    //打包后的文件描述
     output: {
         path: path.join(__dirname, '/assets/dist'),
         publicPath: 'http://localhost:3000/assets/dist/',
@@ -100,12 +101,18 @@ var config = {
             path.resolve(nodeModulesPath, 'react-dom/dist/react-dom.js'),
             path.resolve(nodeModulesPath, 'redux/dist/redux.js')
         ],
+        //各种处理器
         loaders: [{
             test: /\.jsx?$/,
+            //正则表达式匹配路径
             exclude: /node_modules/,
-            loader: 'babel'
+            loader: 'babel'//编译es5到es6，相关配置在.babelrc文件中
         }, {
             test: /\.scss/,
+            /*
+            表示在该路径下的所有.scss文件全部先用sass-loader处理，
+            再用postcss-loader处理，再经过css-loaader处理,最后style-loader处理
+            */
             include:[path.join(__dirname,'app')],
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
         },{
@@ -127,6 +134,7 @@ var config = {
             include: /node_modules/,
             loader: 'style!css'
         },{
+        	//正则表达式匹配文件后缀名
             test: /\.(png|jpe?g|gif)$/,
             loader: 'url?limit=1024'
         },{
@@ -142,7 +150,7 @@ var config = {
     postcss: [
         //可以像sass那样写postcss
         require('precss')(),
-        //require('postcss-cssnext')(),//试用未来的css语法
+        //require('postcss-cssnext')(),//试用未来的css4语法
         require('cssnano')(),//优化和压缩css代码
         //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
         require('autoprefixer')({browsers: ['last 2 versions']}),
@@ -150,10 +158,10 @@ var config = {
         /*
          移动端web一般才会用到下面这个
          */
-        //require('postcss-pxtorem')(getPxToRemoptions(32))//75是iphone6的尺寸/10
+        //require('postcss-pxtorem')(getPxToRemoptions(75))//75是iphone6的尺寸/10
     ],
     resolve: {
-        extensions: ['', '.js', '.scss', '.css', '.jsx']
+        extensions: ['', '.js', '.scss', '.css', '.jsx']//自动匹配后缀，如require('./index.js')可以写成require('./index')
     },
     devtool: 'source-map',
     //devtool: 'cheap-module-eval-source-map',
